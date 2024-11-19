@@ -1,0 +1,579 @@
+/* Основные цвета */
+:root {
+    --main-color: #ADD8E6;
+    --secondary-color: #fa9b02;
+    --text-color: #ffffff;
+    --background-light: #ffffff; /* Белый фон для кнопок */
+}
+body::before {
+    content: ''; /* Создаем пустой слой */
+    position: fixed; /* Растягиваем фон на всю страницу */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    z-index: -1; /* Размещаем под контентом */
+    pointer-events: none; /* Фон не перекрывает клики */
+}
+/* Общие стили */
+body {
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    box-sizing: border-box; /* Устраняем проблемы с размерами */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(45deg, #9890e3, #b1f4cf);
+    background-attachment: fixed; /* Закрепляет фон при прокрутке */
+    background-size: cover; /* Растягивает фон на всю страницу */
+}
+
+/* Шапка и логотип */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background: none;
+    color: var(--text-color);
+    box-sizing: border-box; /* Учитывает padding в ширине */
+}
+
+.logo img {
+    max-height: 80px; /* Увеличьте значение для изменения высоты */
+    width: auto; /* Сохраняет пропорции изображения */
+    margin-right: 20px;
+    margin-left: 25px; /* Увеличьте отступ для сдвига вправо */
+}
+
+
+/* Меню */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    box-sizing: border-box; /* Учитывает padding в размере */
+}
+
+.nav-menu a {
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background: rgba(30, 144, 255, 0.5); /* Черный цвет с прозрачностью 50% */
+    white-space: nowrap;
+}
+
+.nav-menu a:hover {
+    background: rgba(123, 104, 238, 0.7); /* Прозрачный фиолетовый на наведение */
+    color: var(--background-light);
+}
+.gradient-section {
+    color: var(--text-color); /* Белый текст */
+    padding: 50px 20px; /* Отступы внутри секции */
+    text-align: center; /* Выравнивание текста */
+    border: none; /* Убедитесь, что нет рамок */
+}
+/* Секция с фоновым изображением */
+#background-cover {
+    position: relative;
+    background-image: url('your-image.jpg'); /* Фоновое изображение */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay; /* Смешивание цвета и изображения */
+    background-color: rgba(82, 81, 81, 0.5); /* Полупрозрачный слой */
+    height: 100vh; /* Занимает всю высоту экрана */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#background-cover .hero-content {
+    z-index: 2; /* Контент над фоном */
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 1px;
+    border-radius: 10px; /* Закругленные углы */
+    color: var(--text-color);
+}
+
+/* Секция Карьерные консультации */
+#about {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+/* Кнопки */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+    margin-top: 40px;
+}
+
+.button {
+    color: var(--text-color);
+    padding: 15px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+    background: linear-gradient(225deg, rgb(120, 183, 183), rgb(73, 43, 108) 100%);
+}
+
+.button:hover {
+    background: linear-gradient(225deg, rgb(69, 57, 3), rgb(73, 43, 108) 100%);
+}
+
+/* Секция с вопросами для консультации */
+#consultations {
+    color: var(--text-color);
+    padding: 40px 20px;
+}
+
+/* Убираем отступы у секций */
+section {
+    background: transparent; /* Прозрачный фон */
+    padding: 50px 20px; /* Отступы внутри секции */
+    box-sizing: border-box; /* Учитывает отступы */
+    color: var(--text-color); /* Белый текст */
+}
+
+.question-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.question-list li {
+    padding: 10px 0;
+    font-size: 1.1em;
+}
+
+.question-list li::before {
+    content: "• ";
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
+
+/* Секція для цільової аудиторії */
+#audience {
+    padding: 40px 20px;
+    color: var(--text-color);
+}
+
+.audience-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.audience-item {
+    width: 22%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.audience-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.audience-item p {
+    word-wrap: break-word;
+}
+.step {
+    word-wrap: break-word; /* Разбиваем слишком длинные строки */
+    max-width: 250px;      /* Ограничиваем ширину текста */
+}
+
+.steps-grid {
+    max-width: 800px; /* Ограничиваем ширину сетки */
+    margin: 0 auto;   /* Центрируем её */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Сохраняем 3 равные колонки */
+    gap: 20px; /* Расстояние между шагами */
+}
+
+
+.steps-grid .step {
+    text-align: center; /* Центрування тексту */
+}
+
+.steps-grid .step-title {
+    font-size: 30px; /* Розмір заголовку "Крок X" */
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.steps-grid p {
+    font-size: 1.1em; /* Стандартний розмір тексту */
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* Розташування кроків у сітці */
+.steps-grid .step:nth-child(1) {
+    grid-column: 1; /* Перша колонка */
+    grid-row: 1; /* Перший ряд */
+}
+
+.steps-grid .step:nth-child(2) {
+    grid-column: 2; /* Друга колонка */
+    grid-row: 1; /* Перший ряд */
+}
+
+.steps-grid .step:nth-child(3) {
+    grid-column: 3; /* Третя колонка */
+    grid-row: 1; /* Перший ряд */
+    
+}
+
+.steps-grid .step:nth-child(4) {
+    position: relative;
+    left: 135px; /* Сдвигаем только вправо */
+}
+
+
+.steps-grid .step:nth-child(5) {
+    position: relative;
+    left: 165px; /* Сдвиг влево */
+}
+
+
+
+/* Секція Як проходять консультації */
+#process .process-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Расстояние между текстом и картинкой */
+}
+
+#process .steps-grid {
+    flex: 2; /* Занимает больше места */
+    text-align: left; /* Выравнивание текста по левому краю */
+}
+
+#process .process-image {
+    flex: 1; /* Уменьшает размер контейнера для изображения */
+    text-align: center; /* Центрирует картинку */
+}
+
+#process .process-image img {
+    max-width: 67%;
+    height: auto;
+    border-radius: 10px; /* Закругленные углы для эстетики */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Тень для картинки */
+}
+
+.question-columns {
+    display: flex;
+    gap: 20px; /* Проміжок між стовпчиками */
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left; /* Вирівнювання тексту по лівому краю */
+}
+
+.question-columns ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1; /* Рівномірний поділ ширини між стовпчиками */
+}
+
+.question-columns li {
+    padding: 10px 0;
+    font-size: 1.1em;
+    line-height: 1.5; /* Краще читання тексту */
+}
+
+.question-columns li::before {
+    content: "• ";
+    font-size: 1.5em;
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
+
+
+
+/* Секція для запитань */
+#contact {
+    padding: 40px 20px;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, input, textarea, button {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px 0;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background: var(--main-color);
+    color: var(--text-color);
+    background: linear-gradient(225deg, rgb(120, 183, 183), rgb(73, 43, 108) 100%);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(225deg, rgb(69, 57, 3), rgb(73, 43, 108) 100%);
+}
+
+/* Секція з командою консультантів */
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.consultant {
+    width: 300px; /* Фиксированная ширина для карточек */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для карточек */
+}
+
+.consultant img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.consultant h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: var(--secondary-color);
+}
+
+.consultant ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Выровнять текст внутри списка */
+}
+
+.consultant li {
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+/* Стикеры */
+.sticker {
+    position: absolute;
+    z-index: 1000;
+}
+
+#sticker1 {
+    top: 1300px; /* Позиция внутри секции */
+    left: 1200px;
+}
+
+#sticker2 {
+    top: 3100px;
+    right: 200px;
+}
+
+#sticker3 {
+    top: 825px;
+    right: 1200px;
+}
+
+.sticker img {
+    width: 300px;
+    height: auto;
+    cursor: default;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .sticker img {
+        width: 60px;
+    }
+
+    #sticker1, #sticker2, #sticker3 {
+        position: relative; /* Отключаем абсолютное позиционирование */
+        margin: 10px auto;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.open {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+/* Мобильная версия */
+/* Мобильная версия для экранов до 480px */
+/* Полная мобильная адаптация */
+/* Полная мобильная адаптация */
+@media (max-width: 480px) {
+    /* Уменьшаем шапку */
+    header {
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.85);
+    }
+
+    .logo img {
+        max-height: 60px;
+    }
+
+    .nav-menu {
+        display: none; /* Прячем основное меню */
+    }
+
+    .nav-menu.open {
+        display: flex; /* Открываем меню */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 144, 255, 0.95);
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    .nav-menu a {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+
+    /* Секция с фоновым изображением */
+    #background-cover {
+        padding: 40px 20px;
+        background-size: cover;
+        text-align: center;
+    }
+
+    .hero-content {
+        font-size: 16px;
+        margin: 0 auto;
+    }
+
+    /* Карточки консультантов */
+    .photo-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .consultant {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .consultant img {
+        max-width: 90%;
+        height: auto;
+    }
+
+    /* Сетка шагов */
+    .steps-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* По одной колонке */
+        gap: 15px;
+    }
+
+    /* Стикеры */
+    .sticker {
+        position: relative; /* Снимаем абсолютное позиционирование */
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .sticker img {
+        width: 80px; /* Уменьшенный размер */
+    }
+
+    /* Центрируем кнопки */
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+/* Планшетная версия для экранов до 768px */
+@media (max-width: 768px) {
+    .audience-item, .consultant {
+        width: 100%; /* Растягиваем карточки на всю ширину */
+        margin: 0 auto; /* Центрируем карточки */
+    }
+
+    .nav-menu a {
+        font-size: 16px; /* Уменьшенный размер шрифта */
+    }
+
+    .button {
+        width: 100%; /* Кнопки на всю ширину */
+    }
+}
+
+
+
